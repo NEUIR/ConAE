@@ -7,8 +7,8 @@ This repo provides the code for reproducing the experiments in [Dimension Reduct
 To install requirements, run the following commands:
 
 ```
-git clone https://github.com/xxx
-cd xxx
+git clone https://github.com/NEUIR/ConAE/
+cd ConAE
 python setup.py install
 ```
 ## Data Download
