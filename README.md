@@ -42,3 +42,18 @@ python ../evaluation/eval_msmarco.py --dataset  $dataset --query_embed_path $que
 echo $eval_cmd
 eval $eval_cmd
 ```
+
+## Results
+
+| MSMARCO Dev Passage Retrieval  | MRR@10	| NDCG@10| Recall@1k | Steps |
+| ---- | -------- | ----- | ------- | ---------- |
+| ConAE-256  | 0.3294     | 0.3864  | 0.9560    | ckpt |
+| ConAE-128  | 0.3245     | 0.3816  | 0.9523    | ckpt |
+| ConAE-64  | 0.2862     | 0.3376  | 0.9222    | ckpt |
+
+| NQ  | Top20	| Top100| Steps |
+| ---- | -------- | ----- | ------- |
+| ConAE-256  | 0.8053     | 0.8723 | ckpt |
+| ConAE-128  | 0.8064     | 0.8687 | ckpt |
+| ConAE-64  | 0.7604 | 0.8460 | ckpt |
+
