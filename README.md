@@ -15,6 +15,9 @@ python setup.py install
 
 All embeddings come from the dataset encoded by the [ANCE](https://github.com/microsoft/ANCE) encoder in the format of 768-dimensional dense vectors.You can encode the dataset yourself, or download the already encoded embeddings directly.The dataset embeddings we use are given below. If you generate the embedding yourself or download it from other places, pay attention to the format of this repository, otherwise an error will occur.
 
+```
+bash commands/data_download.sh 
+```
 | Datasets   | Getting embedded method                                      |
 | ---------- | :----------------------------------------------------------- |
 | MS MARCO   | bash commands/get_embeddings.sh                              |
