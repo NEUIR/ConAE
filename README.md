@@ -45,7 +45,7 @@ eval $eval_cmd
 
 ## Results
 
-| MSMARCO Dev Passage Retrieval  | MRR@10	| NDCG@10| Recall@1k |
+| MSMARCO | MRR@10	| NDCG@10| Recall@1k |
 | ---- | -------- | ----- | ------- | 
 | ConAE-256  | 0.3294     | 0.3864  | 0.9560    |
 | ConAE-128  | 0.3245     | 0.3816  | 0.9523    |
