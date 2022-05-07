@@ -19,12 +19,12 @@ bash commands/data_download.sh
 ```
 ## Original embeddings generation
 All embeddings come from the dataset encoded by the [ANCE](https://github.com/microsoft/ANCE) encoder in the format of 768-dimensional dense vectors.You can encode the dataset yourself, or download the already encoded embeddings directly from other repositories.The dataset embeddings we use are given below. If you generate the embedding yourself or download it from other places, pay attention to the format of this repository, otherwise an error will occur.
-| Datasets   | Getting embedded method                                      |
+| Datasets   | Methods                                      |
 | ---------- | :----------------------------------------------------------- |
 | MS MARCO   | bash commands/get_embeddings.sh                              |
 | TREC_DL    | bash commands/get_embeddings.sh                              |
 | TREC_COVID | bash commands/get_embeddings.sh                              |
-| NQ         | https://rgw.cs.uwaterloo.ca/JIMMYLIN-bucket0/pyserini-indexes/dindex-wikipedia-ance_multi-bf-20210224-060cef.tar.gz |
+| NQ         | [Download NQ embs](https://rgw.cs.uwaterloo.ca/JIMMYLIN-bucket0/pyserini-indexes/dindex-wikipedia-ance_multi-bf-20210224-060cef.tar.gz) |
 
 ## Evaluation
 
