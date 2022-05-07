@@ -47,7 +47,7 @@ eval $eval_cmd
 
 | MSMARCO | MRR@10	| NDCG@10| Recall@1k |
 | ---- | -------- | ----- | ------- | 
-| ANCE-768  | 0.3302     | 0.3877  | 0.9584    |
+| **ANCE-768**  | **0.3302**     | **0.3877**  | **0.9584**    |
 | ConAE-256  | 0.3294     | 0.3864  | 0.9560    |
 | ConAE-128  | 0.3245     | 0.3816  | 0.9523    |
 | ConAE-64  | 0.2862     | 0.3376  | 0.9222    |
@@ -59,4 +59,4 @@ eval $eval_cmd
 | ConAE-128  | 0.8064     | 0.8687 |
 | ConAE-64  | 0.7604 | 0.8460 |
 
-Our results could be downloaded [here](https://1drv.ms/u/s!AlOd75jmn2v0gQeMGXxBFlQf8Kwx?e=EzYTcw). 
+Our checkpoints could be downloaded [here](https://1drv.ms/u/s!AlOd75jmn2v0gQeMGXxBFlQf8Kwx?e=EzYTcw). 
