@@ -47,7 +47,7 @@ eval $eval_cmd
 
 | MSMARCO Dev Passage Retrieval  | MRR@10	| NDCG@10| Recall@1k | Steps |
 | ---- | -------- | ----- | ------- | ---------- |
-| ConAE-256  | 0.3294     | 0.3864  | 0.9560    | ckpt |
+| ConAE-256  | 0.3294     | 0.3864  | 0.9560    | [ckpt](https://github.com/microsoft/ANCE) |
 | ConAE-128  | 0.3245     | 0.3816  | 0.9523    | ckpt |
 | ConAE-64  | 0.2862     | 0.3376  | 0.9222    | ckpt |
 
