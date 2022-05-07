@@ -57,3 +57,4 @@ eval $eval_cmd
 | ConAE-128  | 0.8064     | 0.8687 |
 | ConAE-64  | 0.7604 | 0.8460 |
 
+Our results could be downloaded [here](https://1drv.ms/u/s!AlOd75jmn2v0gQeMGXxBFlQf8Kwx?e=EzYTcw). 
