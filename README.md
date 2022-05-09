@@ -60,6 +60,8 @@ python ../get_embbedings/get_nq_emb.py \
   --output_path ../data/compress_emb/nq/ 
 ```
 
+Our checkpoints could be downloaded [here](https://1drv.ms/u/s!AlOd75jmn2v0gQeMGXxBFlQf8Kwx?e=EzYTcw). 
+
 ## Evaluation
 
 The command for evaluation is the same as that for Compress embeddings described above. However you need to add --evaluation to the command to have the program to evaluate after the compress embeddings step.
@@ -87,5 +89,3 @@ The command for evaluation is the same as that for Compress embeddings described
 | ConAE-256  | 0.6405    | 
 | ConAE-128  | 0.6381    | 
 | ConAE-64  | 0.5006     | 
-
-Our checkpoints could be downloaded [here](https://1drv.ms/u/s!AlOd75jmn2v0gQeMGXxBFlQf8Kwx?e=EzYTcw). 
