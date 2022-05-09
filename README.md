@@ -62,7 +62,7 @@ python ../get_embbedings/get_nq_emb.py \
 
 ## Evaluation
 
-The evaluation is done through the package of "evaluation".You can run the bash file to evaluate.In order to run it, you need to define the following parameters at the beginning of the eval_*.py.
+The evaluation is done through the package of "evaluation".You can run the bash file to evaluate.In order to run it, you need to define the following parameters at the beginning of the eval_*.py. The command is as follow:
 
 ```
 dataset="Dataset name like MSMARCO, TREC_DL, NQ, TREC_COVID."
