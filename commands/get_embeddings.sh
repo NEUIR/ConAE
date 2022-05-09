@@ -1,4 +1,4 @@
-##################################### Get MSMARCO&TRECCOVID NEmbeddings ################################
+##################################### Get MSMARCO&TRECCOVID Embeddings ################################
 #dataset="Dataset name like MSMARCO, TREC_DL, TREC_COVID."
 #query_embed_path="Query embedding path"
 #doc_embed_path="Document embedding path"
