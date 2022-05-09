@@ -63,4 +63,11 @@ eval $eval_cmd
 | ConAE-128  | 0.8064     | 0.8687 |
 | ConAE-64  | 0.7604 | 0.8460 |
 
+| TREC-COVID | NDCG@10|
+| ---- | -------- | 
+| ANCE-768  | 0.6529     | 
+| ConAE-256  | 0.6405    | 
+| ConAE-128  | 0.6381    | 
+| ConAE-64  | 0.5006     | 
+
 Our checkpoints could be downloaded [here](https://1drv.ms/u/s!AlOd75jmn2v0gQeMGXxBFlQf8Kwx?e=EzYTcw). 
