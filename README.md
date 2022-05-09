@@ -55,31 +55,15 @@ python ../get_embbedings/get_nq_emb.py \
   --query_embed_path ../data/datasets/nq/query-embedding-ance_multi-nq-test/ \
   --doc_embed_path ../data/datasets/nq/dindex-wikipedia-ance_multi-bf-20210224-060cef/ \
   --checkpoint ../data/checkpoint/ConAE/NQ/ConAE_256/model.best.pt \
-  --nq_test_path ../data/datasets/nq/nq-test.json
+  --nq_test_path ../data/datasets/nq/nq-test.json \
   --output_dim 256 \
   --output_path ../data/compress_emb/nq/ 
 ```
 
 ## Evaluation
 
-The evaluation is done through the package of "evaluation".You can run the bash file to evaluate.In order to run it, you need to define the following parameters at the beginning of the eval_*.py. The command is as follow:
+The command for evaluation is the same as that for Compress embeddings described above. However you need to add --evaluation to the command to have the program to evaluate after the compress embeddings step. commands/run_inference.sh provides a sample command.
 
-```
-dataset="Dataset name like MSMARCO, TREC_DL, NQ, TREC_COVID."
-query_embed_path="Query embedding path"
-doc_embed_path="Document embedding path"
-checkpoint="Checkpoint path or PCA model path"
-model="Model name like ConAE, KL, CE, PCA"
-output_dim="Output dimension"
-
-eval_cmd="\
-python ../evaluation/eval_msmarco.py --dataset  $dataset --query_embed_path $query_embed_path --doc_embed_path $doc_embed_path \
-                             --checkpoint $checkpoint --model $model --output_dim $output_dim\
-"
-
-echo $eval_cmd
-eval $eval_cmd
-```
 
 ## Results
 
