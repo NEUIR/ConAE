@@ -35,6 +35,9 @@ python ../encode/get_trecdl_emb.py \
 ```
 
 3.To encode NQ dataset, please download from [Pyserini](https://rgw.cs.uwaterloo.ca/JIMMYLIN-bucket0/pyserini-indexes/dindex-wikipedia-ance_multi-bf-20210224-060cef.tar.gz).
+
+## Compress embeddings 
+
 ## Evaluation
 
 The evaluation is done through the package of "evaluation".You can run the bash file to evaluate.In order to run it, you need to define the following parameters at the beginning of the eval_*.py.
