@@ -52,6 +52,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--query_embed_path', type=str, required=True, help='Query embedding path.')
     parser.add_argument('--doc_embed_path', type=str, required=True, help='Document embedding path.')
+    parser.add_argument("--evaluate", action="store_true", help="Eval step for dataset.")
     parser.add_argument('--nq_test_path', type=str, required=True, help='NQ test dataset queries and answers path.')
     parser.add_argument('--checkpoint', type=str, default=None, required=True,
                         help='Checkpoint path.')
@@ -115,3 +116,21 @@ if __name__ == "__main__":
     with open(os.path.join(args.output_path, 'nq_dembed.pkl'), 'wb') as f:
         pickle.dump(did_emb, f)
 
+    if args.evaluate:
+        del docindex
+        cpu_index.add(np.array(dembeds))
+        topN = 100
+        _, dev_I = cpu_index.search(np.array(qembeds), topN)
+        
+        del qembeds, dembeds
+        passage = {}
+        with open(args.psgs_w100_path) as fin:
+            for step, line in tqdm(enumerate(fin)):
+                tokens = line.strip().split("\t")
+                passage[tokens[0]] = tokens[1]
+        
+        logger.info('Compute results...')
+        result = validate(passage, answers, dev_I, qids, dids)
+        logger.info('Top 5 {}'.format(result[4]))
+        logger.info('Top 20 {}'.format(result[19]))
+        logger.info('Top 100 {}'.format(result[99]))
