@@ -1,6 +1,6 @@
 # ConAE
 
-This repo provides the code for reproducing the experiments in [Dimension Reduction for Efficient Dense Retrieval via Conditional Autoencoder]()
+This repo provides the code for reproducing the experiments in [Dimension Reduction for Efficient Dense Retrieval via Conditional Autoencoder](https://arxiv.org/pdf/2205.03284.pdf)
 
 ## Requirements
 
