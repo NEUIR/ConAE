@@ -1,5 +1,4 @@
 import argparse
-import time
 import numpy as np
 import torch
 import logging
@@ -14,9 +13,8 @@ sys.path.append(os.path.dirname(sys.path[0]))
 
 
 
-from model.distill_model import CE_model, ConAE_model, distill_model
+from model.distill_model import ConAE_model
 from util.msmarco_eval import compute_metrics
-from util.DenseHNSWFlatIndexer import DenseHNSWFlatIndexer
 from util.data_loader import GenericDataLoader
 
 
@@ -155,6 +153,7 @@ if __name__ == "__main__":
     parser.add_argument('--doc_embed_path', type=str, required=True, help='Document embedding path.')
     parser.add_argument('--output_path', type=str, required=True, help='Compressed embedding path.')
     parser.add_argument('--checkpoint', type=str, default=None, required=True, help='Checkpoint path.')
+    parser.add_argument('--model', type=str, required=True, help='Model name like ConAE, KL.')
     parser.add_argument("--batch_size", default=128, type=int, help="Total batch size for training.")
     parser.add_argument("--input_dim", default=768, type=int, help="Input dimension.")
     parser.add_argument("--output_dim", type=int, required=True, help="Output dimension.")
@@ -191,7 +190,7 @@ if __name__ == "__main__":
     logger.info("Loading doc embeddings...")
     with open(args.doc_embed_path, "rb") as fin:
         doc_embeds = pickle.load(fin)
-    
+
     logger.info('Initializing ConAE model!')
     model = ConAE_model(args).cuda()
     model.load_state_dict(torch.load(args.checkpoint)['model'], strict=False)
@@ -213,6 +212,4 @@ if __name__ == "__main__":
         did_emb[id] = emb
     with open(os.path.join(args.output_path, 'dembed.pkl'), 'wb') as f:
         pickle.dump(did_emb, f)
-
-
 
