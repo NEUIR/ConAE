@@ -156,7 +156,6 @@ if __name__ == "__main__":
     parser.add_argument('--doc_embed_path', type=str, required=True, help='Document embedding path.')
     parser.add_argument('--output_path', type=str, required=True, help='Compressed embedding path.')
     parser.add_argument('--checkpoint', type=str, default=None, required=True, help='Checkpoint path.')
-    parser.add_argument('--model', type=str, required=True, help='Model name like ConAE, KL.')
     parser.add_argument("--batch_size", default=128, type=int, help="Total batch size for training.")
     parser.add_argument("--input_dim", default=768, type=int, help="Input dimension.")
     parser.add_argument("--output_dim", type=int, required=True, help="Output dimension.")
@@ -194,7 +193,7 @@ if __name__ == "__main__":
     with open(args.doc_embed_path, "rb") as fin:
         doc_embeds = pickle.load(fin)
     
-    logger.info('Initializing ConAE(kl) model!')
+    logger.info('Initializing ConAE model!')
     model = ConAE_model(args).cuda()
     model.load_state_dict(torch.load(args.checkpoint)['model'], strict=False)
     logger.info('Encoding queries...')
