@@ -38,6 +38,28 @@ python ../encode/get_trecdl_emb.py \
 
 ## Compress embeddings 
 
+1.To Compress dense embeddings(MSMARCO, TREC_DL, TREC_COVID) using ConAE, run:
+```
+python ../get_embbedings/get_emb.py \
+  --dataset MSMARCO \
+  --query_embed_path ../data/datasets/msmarco/embbedings/qembed.pkl \
+  --doc_embed_path ../data/datasets/msmarco/embbedings/dembed.pkl \
+  --checkpoint ../data/checkpoint/ConAE/marco/ConAE_256/model.best.pt  \
+  --output_dim 256 \
+  --output_path ../data/compress_emb/msmarco/ 
+```
+
+2.To Compress dense embeddings(NQ) using ConAE, run:
+```
+python ../get_embbedings/get_nq_emb.py \
+  --query_embed_path ../data/datasets/nq/query-embedding-ance_multi-nq-test/ \
+  --doc_embed_path ../data/datasets/nq/dindex-wikipedia-ance_multi-bf-20210224-060cef/ \
+  --checkpoint ../data/checkpoint/ConAE/NQ/ConAE_256/model.best.pt \
+  --nq_test_path ../data/datasets/nq/nq-test.json
+  --output_dim 256 \
+  --output_path ../data/compress_emb/nq/ 
+```
+
 ## Evaluation
 
 The evaluation is done through the package of "evaluation".You can run the bash file to evaluate.In order to run it, you need to define the following parameters at the beginning of the eval_*.py.
