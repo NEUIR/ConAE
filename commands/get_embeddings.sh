@@ -1,21 +1,16 @@
 ##################################### Get MSMARCO&TRECCOVID NEmbeddings ################################
-#output_path="../data/datasets/msmarco/embbedings/emb"
+#dataset="Dataset name like MSMARCO, TREC_DL, TREC_COVID."
+#query_embed_path="Query embedding path"
+#doc_embed_path="Document embedding path"
+#output_path="Compressed embedding path"
+#checkpoint="Checkpoint path"
+#output_dim="Output dimension"
 #
-#
-#emb_cmd="\
-#python ../encode/get_dense_emb.py --output_path $output_path\
+#cmd="\
+#python ../evaluation/eval_msmarco.py --dataset  $dataset --query_embed_path $query_embed_path --doc_embed_path $doc_embed_path \
+#                             --output_path $output_path --checkpoint $checkpoint --output_dim $output_dim\
 #"
 #
-#echo $emb_cmd
-#eval $emb_cmd
+#echo $cmd
+#eval $cmd
 
-#################################### Get trecdl Embeddings ################################
-output_path="../data/datasets/trec_covid/embbedings"
-
-
-emb_cmd="\
-python ../encode/get_trecdl_emb.py --output_path $output_path\
-"
-
-echo $emb_cmd
-eval $emb_cmd
