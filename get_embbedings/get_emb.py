@@ -224,13 +224,13 @@ if __name__ == "__main__":
         print('{:.6f}s for the total'.format(end))
         print('{:.6f}s for the every'.format(end / np.array(qembeds).shape[0]))
 
-    logger.info('Compute results...')
-    result = EvalDevQuery(qids, dids, dev_qrels, dev_I, topN)
-    final_ndcg, eval_query_cnt, final_Map, final_mrr, final_recall, hole_rate, ms_mrr, Ahole_rate, metrics, prediction = result
-    print("Reranking NDCG@10:" + str(final_ndcg))
-    print("Reranking map@10:" + str(final_Map))
-    print("Reranking pytrec_mrr:" + str(final_mrr))
-    print("Reranking recall@" + str(topN) + ":" + str(final_recall))
-    print("Reranking hole rate@10:" + str(hole_rate))
-    print("Reranking hole rate:" + str(Ahole_rate))
-    print("Reranking ms_mrr:" + str(ms_mrr))
+        logger.info('Compute results...')
+        result = EvalDevQuery(qids, dids, dev_qrels, dev_I, topN)
+        final_ndcg, eval_query_cnt, final_Map, final_mrr, final_recall, hole_rate, ms_mrr, Ahole_rate, metrics, prediction = result
+        print("Reranking NDCG@10:" + str(final_ndcg))
+        print("Reranking map@10:" + str(final_Map))
+        print("Reranking pytrec_mrr:" + str(final_mrr))
+        print("Reranking recall@" + str(topN) + ":" + str(final_recall))
+        print("Reranking hole rate@10:" + str(hole_rate))
+        print("Reranking hole rate:" + str(Ahole_rate))
+        print("Reranking ms_mrr:" + str(ms_mrr))
