@@ -47,27 +47,6 @@ def encode_dos(model, doc_embeds, batch_size, dids):
 
 
 
-def encode_queries_pca(pca_model, query_embeds, batch_size,qids):
-    qembeds = []
-    for start in tqdm(range(0, len(query_embeds), batch_size)):
-        batch_qids = qids[start: start + batch_size]
-        batch_qembeds = query_embeds[start: start + batch_size]
-        batch_qembeds = pca_model.apply_py(np.array(batch_qembeds))
-        assert len(batch_qembeds) == len(batch_qids)
-        qembeds.extend(batch_qembeds)
-    return qids, qembeds
-
-
-def encode_dos_pca(pca_model, doc_embeds, batch_size, dids):
-    dembeds = []
-    for start in tqdm(range(0, len(doc_embeds), batch_size)):
-        batch_dids = dids[start: start + batch_size]
-        batch_dembeds = doc_embeds[start: start + batch_size]
-        batch_dembeds = pca_model.apply_py(np.array(batch_dembeds))
-        assert len(batch_dembeds) == len(batch_dids)
-        dembeds.extend(batch_dembeds)
-    return dids, dembeds
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -76,7 +55,6 @@ if __name__ == "__main__":
     parser.add_argument('--nq_test_path', type=str, required=True, help='NQ test dataset queries and answers path.')
     parser.add_argument('--checkpoint', type=str, default=None, required=True,
                         help='Checkpoint path.')
-    parser.add_argument('--model', type=str, required=True, help='Model name like ConAE, CE, PCA.')
     parser.add_argument("--batch_size", default=128, type=int, help="Total batch size for training.")
     parser.add_argument("--input_dim", default=768, type=int, help="Input dimension.")
     parser.add_argument("--output_dim", type=int, required=True, help="Output dimension.")
@@ -114,14 +92,13 @@ if __name__ == "__main__":
         for line in fin:
             dids.append(line.strip())
 
-    if args.model.lower() == 'conae' or args.model.lower() == 'kl':
-        logger.info('Initializing ConAE model!')
-        model = ConAE_model(args).cuda()
-        model.load_state_dict(torch.load(args.checkpoint)['model'], strict=False)
-        logger.info('Encoding queries...')
-        qids, qembeds = encode_queries(model, qembeds, args.batch_size, qids)
-        logger.info('Encoding docs...')
-        dids, dembeds = encode_dos(model, doc_embeds, args.batch_size, dids)
+    logger.info('Initializing ConAE model!')
+    model = ConAE_model(args).cuda()
+    model.load_state_dict(torch.load(args.checkpoint)['model'], strict=False)
+    logger.info('Encoding queries...')
+    qids, qembeds = encode_queries(model, qembeds, args.batch_size, qids)
+    logger.info('Encoding docs...')
+    dids, dembeds = encode_dos(model, doc_embeds, args.batch_size, dids)
 
 
     logger.info("Saving Queries Embeddings...")
