@@ -3,7 +3,7 @@ dataset="Dataset name like MSMARCO, TREC_DL, TREC_COVID."
 query_embed_path="Query embedding path"
 doc_embed_path="Document embedding path"
 checkpoint="Checkpoint path"
-output_dim=64
+output_dim="Output dimension"
 output_path="Compressed embedding path"
 
 compress_cmd="\
@@ -18,8 +18,8 @@ eval $compress_cmd
 #query_embed_path="Query embedding path"
 #doc_embed_path="Document embedding path"
 #checkpoint="Checkpoint path"
-#nq_test_path="NQ test dataset queries and answers path."
-#output_dim=64
+#nq_test_path="NQ test dataset queries and answers path"
+#output_dim="Output dimension"
 #output_path="Compressed embedding path"
 #
 #compress_cmd="\
