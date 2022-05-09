@@ -193,15 +193,14 @@ if __name__ == "__main__":
     logger.info("Loading doc embeddings...")
     with open(args.doc_embed_path, "rb") as fin:
         doc_embeds = pickle.load(fin)
-
-    if args.model.lower() == 'conae' or args.model.lower() == 'kl':
-        logger.info('Initializing ConAE(kl) model!')
-        model = ConAE_model(args).cuda()
-        model.load_state_dict(torch.load(args.checkpoint)['model'], strict=False)
-        logger.info('Encoding queries...')
-        qids, qembeds = encode_queries(model, query_embeds, args.batch_size, dev_queries)
-        logger.info('Encoding docs...')
-        dids, dembeds = encode_dos(model, doc_embeds, args.batch_size)
+    
+    logger.info('Initializing ConAE(kl) model!')
+    model = ConAE_model(args).cuda()
+    model.load_state_dict(torch.load(args.checkpoint)['model'], strict=False)
+    logger.info('Encoding queries...')
+    qids, qembeds = encode_queries(model, query_embeds, args.batch_size, dev_queries)
+    logger.info('Encoding docs...')
+    dids, dembeds = encode_dos(model, doc_embeds, args.batch_size)
 
     logger.info("Saving Queries Embeddings...")
     qid_emb = dict()
