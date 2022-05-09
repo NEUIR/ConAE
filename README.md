@@ -62,7 +62,7 @@ python ../get_embbedings/get_nq_emb.py \
 
 ## Evaluation
 
-The command for evaluation is the same as that for Compress embeddings described above. However you need to add --evaluation to the command to have the program to evaluate after the compress embeddings step. commands/run_inference.sh provides a sample command.
+The command for evaluation is the same as that for Compress embeddings described above. However you need to add --evaluation to the command to have the program to evaluate after the compress embeddings step.
 
 
 ## Results
