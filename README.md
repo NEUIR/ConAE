@@ -18,14 +18,23 @@ To download all the needed data, run:
 bash commands/data_download.sh 
 ```
 ## Original embeddings generation
-All embeddings come from the dataset encoded by the [ANCE](https://github.com/microsoft/ANCE) encoder in the format of 768-dimensional dense vectors.You can encode the dataset yourself, or download the already encoded embeddings directly from other repositories.The dataset embeddings we use are given below. If you generate the embedding yourself or download it from other places, pay attention to the format of this repository, otherwise an error will occur.
-| Datasets   | Methods                                      |
-| ---------- | :----------------------------------------------------------- |
-| MS MARCO   | bash commands/get_embeddings.sh                              |
-| TREC_DL    | bash commands/get_embeddings.sh                              |
-| TREC_COVID | bash commands/get_embeddings.sh                              |
-| NQ         | [Download NQ embs](https://rgw.cs.uwaterloo.ca/JIMMYLIN-bucket0/pyserini-indexes/dindex-wikipedia-ance_multi-bf-20210224-060cef.tar.gz) |
+All embeddings come from the dataset encoded by the [ANCE](https://github.com/microsoft/ANCE) encoder in the format of 768-dimensional dense vectors. You can encode the dataset yourself, or download the already encoded embeddings directly from other repositories such as [Pyserini](https://github.com/castorini/pyserini) and [Beir](https://github.com/beir-cellar/beir). If you generate the embedding yourself or download it from other places, pay attention to the format of this repository, otherwise an error will occur. The dataset embeddings we use are given below.
 
+1.To encode MSMARCO or TREC_COVID dataset, run:
+```
+python ../encode/get_dense_emb.py \
+  --dataset MSMARCO \
+  --output_path ../data/datasets/msmarco/embbedings/
+```
+
+2.To encode TREC_DL dataset, run:
+```
+python ../encode/get_trecdl_emb.py \
+  --query_path ../data/datasets/trec_dl/2019qrels-pass.txt \
+  --output_path ../data/datasets/trec_dl/embbedings
+```
+
+3.To encode NQ dataset, please download from [Pyserini](https://rgw.cs.uwaterloo.ca/JIMMYLIN-bucket0/pyserini-indexes/dindex-wikipedia-ance_multi-bf-20210224-060cef.tar.gz).
 ## Evaluation
 
 The evaluation is done through the package of "evaluation".You can run the bash file to evaluate.In order to run it, you need to define the following parameters at the beginning of the eval_*.py.
