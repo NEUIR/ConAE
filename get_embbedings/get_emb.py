@@ -151,7 +151,6 @@ def encode_dos(model, doc_embeds, batch_size):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, required=True, help="Dataset name like MSMARCO, TREC_DL, TREC_COVID.")
-    parser.add_argument("--hnsw", action="store_true", help="MSMARCO operate hnsw.")
     parser.add_argument('--query_embed_path', type=str, required=True, help='Query embedding path.')
     parser.add_argument('--doc_embed_path', type=str, required=True, help='Document embedding path.')
     parser.add_argument('--output_path', type=str, required=True, help='Compressed embedding path.')
